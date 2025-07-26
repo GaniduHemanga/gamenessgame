@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gameness Game</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #009fff);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .title {
+      font-size: 60px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #ddd;
+      margin-top: 10px;
+      animation: fadeIn 2.5s ease-out forwards;
+    }
+
+    .buttons {
+      margin-top: 40px;
+      animation: fadeIn 3s ease-out forwards;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: #00c6ff;
+      color: white;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #0072ff;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">Gameness Game</div>
+  <div class="subtitle">Ganidu Hemanga</div>
+
+  <div class="buttons">
+    <!-- ✅ Next page button redirects to about.html -->
+    <a href="about.html"><button class="btn">Next</button></a>
+    
+    <!-- ✅ Show popup for About Me -->
+    <button class="btn" onclick="alert('👤 Name: Ganidu Hemanga\n📍 Location: Sri Lanka\n💬 Passion: Game Developer & Coder\n🌟 Future Goal: Build amazing games!')">About Me</button>
+  </div>
+</body>
+</html>
+    
