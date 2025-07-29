@@ -1,98 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <meta charset="UTF-8">
-  <title>Gameness Game</title>
+  <title>Gameness Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      cursor: none;
     }
 
     html, body {
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
       overflow: hidden;
+      position: relative;
     }
 
     body {
-      background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #009fff);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      color: #fff;
+    }
+
+    /* Background Video */
+    video#bg-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.4) contrast(1.2);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100%;
+      background: rgba(0, 0, 50, 0.85);
+      padding: 60px 20px;
+      box-shadow: 5px 0 20px rgba(0, 200, 255, 0.3);
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      color: white;
-      text-align: center;
+      gap: 25px;
+      transition: 0.6s ease;
+      z-index: 10;
     }
 
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    .sidebar.open {
+      left: 0;
     }
 
-    .title {
-      font-size: 60px;
+    .sidebar a {
+      color: #00e6ff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 15px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: rgba(0, 0, 255, 0.1);
+      border-left: 3px solid #00e6ff;
+      transform: translateX(10px);
+    }
+
+    /* Menu Toggle Button */
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      background: #003366;
+      color: #00e6ff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
       font-weight: bold;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeIn 2s ease-out forwards;
+      box-shadow: 0 0 10px #00e6ff;
+      cursor: pointer;
+      transition: 0.3s;
     }
+
+    .menu-btn:hover {
+      background: #004488;
+      box-shadow: 0 0 20px #00e6ff;
+    }
+
+    /* Main Content */
+    .main {
+      margin-left: 0;
+      padding: 100px 40px 40px 40px;
+      transition: 0.5s;
+    }
+
+    .sidebar.open ~ .main {
+      margin-left: 260px;
+    }
+h1 {
+  font-size: 48px;
+  background: linear-gradient(90deg, #00ccff, #0066ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+}
+   /* Remove or comment this */
+@keyframes waveTitle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 
     .subtitle {
       font-size: 20px;
-      color: #ddd;
       margin-top: 10px;
-      animation: fadeIn 2.5s ease-out forwards;
+      color: #00cfff;
     }
 
     .buttons {
-      margin-top: 40px;
-      animation: fadeIn 3s ease-out forwards;
+      margin-top: 50px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .btn {
-      padding: 12px 25px;
-      margin: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      background: #00c6ff;
+    .buttons a {
+      text-decoration: none;
+      padding: 14px 28px;
+      background: linear-gradient(45deg, #003366, #00ccff);
+      border-radius: 40px;
       color: white;
-      transition: 0.3s ease;
+      font-size: 18px;
+      font-weight: bold;
+      transition: transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 0 10px #00e6ff;
+      position: relative;
     }
 
-    .btn:hover {
-      background: #0072ff;
-      transform: scale(1.05);
+    .buttons a:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px #00f4ff, 0 0 30px #00e6ff;
+    }
+
+    .buttons a:active {
+      transform: scale(0.95);
+    }
+
+    /* Cursor Pulse Effect */
+    .cursor {
+      width: 20px;
+      height: 20px;
+      background: #00e6ff;
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+      animation: pulse 0.8s infinite ease-in-out;
+      z-index: 999;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Page Fade-In */
+    .main {
+      opacity: 0;
+      animation: fadeIn 1.5s forwards ease-out;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+      }
     }
 
-    a {
-      text-decoration: none;
+    /* Responsive */
+    @media (max-width: 768px) {
+      .buttons {
+        flex-direction: column;
+      }
+
+      .menu-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .sidebar {
+        width: 220px;
+      }
+
+      .sidebar.open ~ .main {
+        margin-left: 220px;
+      }
     }
   </style>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  
 </head>
 <body>
-  <div class="title">Gameness Game</div>
-  <div class="subtitle">Ganidu Hemanga</div>
 
-  <div class="buttons">
-    <!-- ✅ Next page button redirects to about.html -->
-    <a href="about.html"><button class="btn">Next</button></a>
-    
-    <!-- ✅ Show popup for About Me -->
-    <button class="btn" onclick="alert('👤 Name: Ganidu Hemanga\n📍 Location: Sri Lanka\n💬 Passion: Game Developer & Coder\n🌟 Future Goal: Build amazing games!')">About Me</button>
+  <!-- Background video -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="backgroundvideo.mp4" type="video/webm">
+  </video>
+
+  <!-- Menu button -->
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="about.html">About Games</a>
+    <a href="game-downloader.html">Game Downloader</a>
+    <a href="gallery.html">Game Gallery</a>
+    <a href="developers.html">About Game Developers</a>
+    <a href="library.html">Game Library</a>
+    <a href="links.html">Links</a>
   </div>
+
+  <!-- Main -->
+  <div class="main">
+   <h1 id="main-title" class="animate__animated">Welcome to Gameness Games</h1>
+<div id="subtitle" class="subtitle animate__animated">By Ganidu Hemanga</div>
+
+<div class="buttons">
+  <a class="animate__animated" id="btn1" href="about.html">About Games</a>
+  <a class="animate__animated" id="btn2" href="gallery.html">Game Gallery</a>
+  <a class="animate__animated" id="btn3" href="developers.html">Game Developers</a>
+  <a class="animate__animated" id="btn4" href="library.html">Game Library</a>
+</div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+<script>
+     // Animate elements when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('main-title').classList.add('animate__fadeInDown');
+      document.getElementById('subtitle').classList.add('animate__fadeInUp', 'animate__delay-1s');
+      document.getElementById('btn1').classList.add('animate__fadeInUp', 'animate__delay-2s');
+      document.getElementById('btn2').classList.add('animate__fadeInUp', 'animate__delay-3s');
+      document.getElementById('btn3').classList.add('animate__fadeInUp', 'animate__delay-4s');
+      document.getElementById('btn4').classList.add('animate__fadeInUp', 'animate__delay-5s');
+    });
+    // Toggle menu
+function toggleMenu() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// Move custom cursor
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = (e.clientX - cursor.offsetWidth / 2) + 'px';
+  cursor.style.top = (e.clientY - cursor.offsetHeight / 2) + 'px';
+});
+  </script>
 </body>
 </html>
-    

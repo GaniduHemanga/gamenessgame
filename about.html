@@ -12,26 +12,37 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(-45deg, #000000, #0f0f5c, #000000, #1a1aff);
       background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
+      animation: gradientMove 20s ease infinite;
       color: white;
       padding: 30px;
+      position: relative;
+      /* overflow property removed as no value was set */
     }
 
-    @keyframes gradient {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     h1 {
       text-align: center;
       font-size: 48px;
       margin-bottom: 30px;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
+      background: linear-gradient(270deg, #00c6ff, #0072ff, #00c6ff);
+      background-size: 600% 600%;
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: textShine 5s ease-in-out infinite;
+    }
+
+    @keyframes textShine {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     img {
@@ -40,18 +51,19 @@
       width: 80%;
       max-width: 800px;
       border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
       margin-bottom: 30px;
     }
 
     .content {
       max-width: 1000px;
       margin: auto;
-      background-color: rgba(255,255,255,0.05);
+      background-color: rgba(255, 255, 255, 0.05);
       padding: 20px;
       border-radius: 15px;
       line-height: 1.8;
       font-size: 18px;
+      backdrop-filter: blur(4px);
     }
 
     .emoji-title {
@@ -59,13 +71,36 @@
       margin-top: 20px;
       color: #00c6ff;
     }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px auto 0;
+      max-width: 1000px;
+    }
+
+    .nav-buttons a {
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffffff;
+      background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .nav-buttons a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 255, 255, 0.5);
+    }
   </style>
 </head>
 <body>
-  <h1>About Games</h1>
+  <h1>Minecraft</h1>
 
-  <!-- ✅ Add your Minecraft image -->
-  <img src="223a1521-60cf-4a82-b708-c5f2fdfcf163.jpg" alt="Minecraft Image">
+  <img src="minecraft.jpg" alt="Minecraft Image">
 
   <div class="content">
     <div class="emoji-title">🟩 What is Minecraft?</div>
@@ -123,6 +158,11 @@
       <li>Educational: Used in schools for teaching math, logic, teamwork, coding, etc.</li>
       <li>Huge community with mods, texture packs, and servers.</li>
     </ul>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="index.html">Home</a>
+    <a href="about2.html">Next →</a>
   </div>
 </body>
 </html>
