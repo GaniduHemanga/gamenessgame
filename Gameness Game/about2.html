@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PUBG Mobile</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      min-height: 100vh;
+      overflow-y: auto;
+    }
+   body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #000000, #0a0f1a, #001f33, #000000);
+  background-size: 500% 500%;
+  animation: darkBlueWave 20s ease infinite;
+  color: #ffffff;
+  padding: 30px;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+@keyframes darkBlueWave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+   h1 {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 30px;
+  background: linear-gradient(to right, #00bfff, #00ffee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+  text-shadow: 0 0 8px #00ffff, 0 0 15px #0066cc;
+}
+   @keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 8px #00ffff, 0 0 15px #0066cc;
+    transform: scale(1);
+  }
+  100% {
+    text-shadow: 0 0 20px #00ccff, 0 0 40px #0099ff;
+    transform: scale(1.05);
+  }
+}
+
+    img {
+      display: block;
+      margin: 0 auto 30px;
+      width: 80%;
+      max-width: 800px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,255,170,0.4);
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.06);
+      padding: 25px;
+      border-radius: 15px;
+      line-height: 1.8;
+      font-size: 18px;
+      animation: fadeIn 1.2s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .emoji-title {
+      font-size: 22px;
+      margin-top: 25px;
+      color: #aaffaa;
+      font-weight: bold;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 40px auto 0;
+    }
+
+    .nav-buttons a {
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffffff;
+      background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .nav-buttons a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 255, 255, 0.6);
+    }
+   
+  </style>
+</head>
+<body>
+  <h1>PUBG Mobile</h1>
+
+  <!-- ✅ PUBG Image -->
+  <img src="pubg.jpg" alt="PUBG Image">
+
+  <div class="content">
+    <div class="emoji-title">🎮 PUBG – PlayerUnknown's Battlegrounds</div>
+    <p>PUBG is a massively popular battle royale shooter game developed by PUBG Corporation, a subsidiary of KRAFTON Inc. The game was inspired by the Japanese film <em>Battle Royale</em> and was initially released in 2017. It quickly became a global phenomenon for its intense survival gameplay and realistic combat.</p>
+
+    <div class="emoji-title">🗺️ What is PUBG All About?</div>
+    <p>In PUBG, 100 players are dropped onto a large island using a parachute. The goal is simple: survive and be the last player or team standing.</p>
+    <ul>
+      <li>Loot buildings for guns, armor, ammo, and healing items.</li>
+      <li>Use vehicles to travel faster or escape danger.</li>
+      <li>Stay within the safe zone, which shrinks over time due to a deadly blue zone.</li>
+      <li>Fight or hide – Use strategy, shooting skills, and survival tactics.</li>
+    </ul>
+
+    <div class="emoji-title">🔫 Gameplay Modes:</div>
+    <ul>
+      <li><strong>Solo</strong> – Every player fights alone.</li>
+      <li><strong>Duo</strong> – Teams of 2 players.</li>
+      <li><strong>Squad</strong> – Teams of 4 players.</li>
+      <li><strong>Ranked Mode</strong> – Competitive play with points and tiers.</li>
+      <li><strong>Arcade Mode</strong> (PUBG Mobile) – Quick and fun game types like TDM or War Mode.</li>
+    </ul>
+
+    <div class="emoji-title">🧭 Main Maps in PUBG:</div>
+    <ul>
+      <li><strong>Erangel</strong> – Classic forested island, a mix of urban and rural areas.</li>
+      <li><strong>Miramar</strong> – Desert terrain, long-range combat.</li>
+      <li><strong>Sanhok</strong> – Small, jungle map, fast-paced.</li>
+      <li><strong>Vikendi</strong> – Snowy, tactical map.</li>
+      <li><strong>Livik</strong> – Exclusive to PUBG Mobile, fast 15-minute matches.</li>
+    </ul>
+
+    <div class="emoji-title">💣 Weapons and Gear:</div>
+    <ul>
+      <li>Assault Rifles (AKM, M416), Sniper Rifles (AWM, Kar98k), SMGs, Shotguns.</li>
+      <li>Attachments: Scopes, grips, magazines, suppressors.</li>
+      <li>Grenades: Frag, Smoke, Stun, Molotov.</li>
+      <li>Armor: Helmets and vests (Level 1–3).</li>
+      <li>Medical items: Bandages, First Aid Kits, Medkits, Energy Drinks, Painkillers.</li>
+    </ul>
+
+    <div class="emoji-title">🚗 Vehicles:</div>
+    <ul>
+      <li>Use cars, bikes, boats, and even snowmobiles (on Vikendi) to move quickly or run down enemies.</li>
+      <li>But be careful — they make noise and draw attention.</li>
+    </ul>
+
+    <div class="emoji-title">🧠 Why PUBG is So Popular:</div>
+    <ul>
+      <li>Realistic shooting mechanics and ballistics.</li>
+      <li>High tension – every match is unpredictable.</li>
+      <li>Huge variety of tactics – camp, rush, snipe, or sneak.</li>
+      <li>Constant updates and limited-time events.</li>
+      <li>Large eSports scene with global tournaments.</li>
+    </ul>
+
+    <div class="emoji-title">📱 Platforms:</div>
+    <ul>
+      <li>PC (Steam)</li>
+      <li>PlayStation 4 & 5</li>
+      <li>Xbox One & Series X/S</li>
+      <li>PUBG: Mobile (for Android & iOS – free to play)</li>
+      <li>PUBG: New State – a futuristic version of PUBG Mobile</li>
+    </ul>
+
+    <div class="emoji-title">🧑‍🤝‍🧑 Multiplayer Experience:</div>
+    <ul>
+      <li>Play with friends using voice chat.</li>
+      <li>Join clans or crews (especially in PUBG Mobile).</li>
+      <li>Global ranking systems and custom rooms for private matches.</li>
+    </ul>
+
+    <div class="emoji-title">📌 Interesting Facts:</div>
+    <ul>
+      <li>PUBG was one of the first battle royale games to become mainstream.</li>
+      <li>It has sold over 70 million copies on PC and consoles.</li>
+      <li>PUBG Mobile has over 1 billion downloads worldwide!</li>
+      <li>It helped shape the modern battle royale genre, alongside Fortnite and Call of Duty: Warzone.</li>
+    </ul>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="about.html">Back</a>
+    <a href="fortnite.html">Next →</a>
+  </div>
+</body>
+</html>
